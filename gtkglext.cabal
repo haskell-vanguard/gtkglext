@@ -17,7 +17,7 @@ Description:    GtkGLExt provides the GDK objects to support OpenGL rendering in
 Category:       Graphics
 Tested-With:    GHC == 6.10.4, GHC == 6.12.3, GHC == 7.0.4, GHC == 7.2.1
 Extra-Source-Files: hierarchy.list
-					
+
 x-Types-File:       Graphics/UI/Gtk/OpenGL/Types.chs
 x-Types-ModName:    Graphics.UI.Gtk.OpenGL.Types
 x-Types-Forward:    *Graphics.UI.GtkInternals
@@ -27,7 +27,7 @@ x-Types-Hierarchy:  hierarchy.list
 Data-Dir:		demo
 Data-Files:		RotatingCube.hs
                 Makefile
-				
+
 Source-Repository head
   type:         git
   location:     https://github.com/gtk2hs/gtkglext
@@ -42,14 +42,14 @@ Flag use-deprecated
 
 custom-setup
   setup-depends: base >= 4.6,
-                 Cabal >= 1.24 && < 2.3,
+                 Cabal >= 1.24 && < 2.6,
                  gtk2hs-buildtools >= 0.13.2.0 && < 0.14
 
 Library
         build-depends:  base >= 4 && < 5,
                         glib  >= 0.13.3.0 && < 0.14,
                         pango >= 0.13.2.0 && < 0.14,
-                        gtk   >= 0.14.3 && < 0.15
+                        gtk   >= 0.14.3 && < 0.16
         if flag(have-quartz-gtk)
           cpp-options: -DHAVE_QUARTZ_GTK
         if flag(use-deprecated)
@@ -59,7 +59,7 @@ Library
 
         build-tools:    gtk2hsC2hs >= 0.13.9,
                         gtk2hsHookGenerator, gtk2hsTypeGen
-						
+
         exposed-modules:
           Graphics.UI.Gtk.OpenGL
           Graphics.UI.Gtk.OpenGL.Config
@@ -70,11 +70,11 @@ Library
           Graphics.UI.Gtk.OpenGL.Pixmap
           Graphics.UI.Gtk.OpenGL.Window
         other-modules:
-          Graphics.UI.Gtk.OpenGL.Types          
-		  
+          Graphics.UI.Gtk.OpenGL.Types
+
         default-language:   Haskell2010
         default-extensions: ForeignFunctionInterface
-		
+
         x-c2hs-Header:  gtk/gtkgl.h
         x-Types-Tag: gtkglext
         pkgconfig-depends: gtkglext-1.0 >= 1.0.5
